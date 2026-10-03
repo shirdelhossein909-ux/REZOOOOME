@@ -2,13 +2,29 @@
 
 سایت و رزومه‌ی دوزبانه (فارسی و انگلیسی).
 
+آدرس سایت: **https://shirdelhossein909-ux.github.io/REZOOOOME/**
+
 | فایل | چیست |
 | --- | --- |
-| `حسین شیردل _ Hossein Shirdel.html` | سایت کامل، در یک فایل. همین فایل روی لینک claude.ai منتشر می‌شود. |
+| `index.html` | سایت کامل؛ صفحه‌ای که GitHub Pages نشان می‌دهد |
+| `حسین شیردل _ Hossein Shirdel.html` | همان سایت با نام قبلی (دقیقاً یکسان با `index.html`) |
 | `حسین شیردل _ Hossein Shirdel.md` | متن سایت به فارسی و انگلیسی، بدون بخش‌های تعاملی |
 | `رزومه_حسین_شیردل.pdf` | رزومه‌ی فارسی، سه برگ A4 |
 | `Hossein_Shirdel_Resume.pdf` | رزومه‌ی انگلیسی، سه برگ A4 |
 | `resume/` | منبع پی‌دی‌اف‌ها: `fa.html`، `en.html`، `resume.css`، `charts.js`، کد QR و فونت‌ها |
+| `.nojekyll` | به GitHub Pages می‌گوید فایل‌ها را بدون پردازش منتشر کند |
+
+## روشن کردن GitHub Pages (یک بار)
+
+1. در همین مخزن به **Settings ← Pages** بروید.
+2. در بخش **Build and deployment**، گزینه‌ی **Source** را روی **Deploy from a branch** بگذارید.
+3. **Branch** را `main` و پوشه را `/ (root)` انتخاب کنید و **Save** را بزنید.
+
+حدود یک دقیقه بعد، سایت روی آدرس بالا باز می‌شود. کد QR هر دو پی‌دی‌اف به همین آدرس اشاره می‌کند. فونت‌ها از داخل همین مخزن بارگذاری می‌شوند، پس سایت به Google Fonts وابسته نیست.
+
+## تم روشن و تاریک
+
+سایت همیشه با تم روشن باز می‌شود و تم تاریک فقط با دکمه‌ی بالای صفحه انتخاب می‌شود. انتخاب هر بیننده در مرورگر خودش به خاطر می‌ماند.
 
 ## ساخت دوباره‌ی پی‌دی‌اف‌ها
 
@@ -22,6 +38,6 @@ node resume/build.cjs fa     # فقط فارسی
 
 فونت‌ها داخل `resume/fonts` هستند، پس ساخت به اینترنت نیاز ندارد. اسکریپت برای هر برگ فضای خالی پایین صفحه را به میلی‌متر چاپ می‌کند؛ عدد منفی یعنی متن به پاورقی رسیده است.
 
-## Rebuilding the PDFs
+## English
 
-Edit `resume/fa.html` or `resume/en.html`, then run `node resume/build.cjs` (needs `playwright`). Fonts are bundled in `resume/fonts` (SIL Open Font License, from Google Fonts), so the build works offline.
+Site: https://shirdelhossein909-ux.github.io/REZOOOOME/ (GitHub Pages from `main`, root folder). `index.html` and `حسین شیردل _ Hossein Shirdel.html` are the same file. The site opens in the light theme; dark is picked with the switch in the header. To rebuild the PDFs, edit `resume/fa.html` or `resume/en.html` and run `node resume/build.cjs` (needs `playwright`). Fonts are bundled (SIL Open Font License, from Google Fonts), so neither the site nor the build depends on Google.
