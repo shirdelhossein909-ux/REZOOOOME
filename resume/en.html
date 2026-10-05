@@ -8,12 +8,12 @@
 <body>
 
 <!-- ============ sheet 1 ============ -->
-<section class="page">
+<section class="page p1">
   <header class="tb">
     <div class="tb-main">
       <span class="tb-kicker">Résumé</span>
       <h1>Hossein Shirdel</h1>
-      <p class="role">Builder of real systems with AI · automated trading</p>
+      <p class="role">Builder of real systems with AI · automated trading · chatbot testing</p>
     </div>
     <div class="tb-qr"><img src="qr-en.svg" alt="QR"><span>Full site: every log, chart and line of public code</span></div>
     <div class="tb-cells">
@@ -24,54 +24,28 @@
     </div>
   </header>
 
-  <p class="summary">For about a year, I have been using leading AI models such as Claude and GPT to design and build a <b>five-part automated trading system</b> for MetaTrader 5: data download and trading-cost measurement, a backtester, a trading robot, and a watchdog that looks after the robot around the clock. When the backtest showed 825% profit and the live account lost money, I did not explain it away. I compared the two trade by trade, <b class="hl">found the flaw in the backtest myself</b>, and rebuilt the system.</p>
+  <p class="summary">For about a year, I have been using leading AI models such as Claude and GPT to design and build real software systems. Two main projects: a <b>five-part automated trading system</b> for MetaTrader 5, where the backtest showed 825% profit while the live account lost money, so I <b class="hl">found the flaw in the backtest myself</b> and rebuilt the system; and <b>Mahak</b>, a test bench for Persian customer-support chatbots that you can try in your browser today.</p>
 
+  <h2 class="h2">Project 1: an automated trading system</h2>
   <div class="facts">
     <div class="fact"><b>5</b><span>parts, one system</span></div>
     <div class="fact"><b>6,500+</b><span>lines of Python</span></div>
     <div class="fact"><b>3 months</b><span>live on a demo account</span></div>
     <div class="fact"><b>6 years</b><span>of 1-minute data</span></div>
   </div>
-
-  <h2 class="h2">Project: an automated trading system</h2>
-  <div class="guard">
-    <svg viewBox="0 0 120 48" aria-hidden="true"><line x1="0" y1="28" x2="120" y2="28" stroke="#cdd6db" stroke-width="1"/><path d="M0 28 H22 L27 28 L31 12 L36 40 L41 6 L46 34 L50 28 H72 L77 28 L81 12 L86 40 L91 6 L96 34 L100 28 H120" fill="none" stroke="#2443d0" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg>
-    <div>
-      <h3>Watchdog <span class="badge">highlight</span> <span class="mono" style="font-size:6.6pt;color:var(--muted);font-weight:500">watchdog.py</span></h3>
-      <p>Checks the robot's heartbeat every 60 seconds. If the robot closes or hangs, it restarts it, finds the cause in the Windows event log (updates, power loss, sign-outs, crashes) and reports it on the Bale messenger.</p>
-    </div>
-  </div>
-  <div class="parts">
-    <article class="part sheet"><div class="tab"><span class="lbl">Part 1</span><span class="badge priv">private</span></div><h3>Trading robot</h3><p>Runs the strategy on MetaTrader 5 and reports every action to Bale with its exact reason. It shares its decision engine with the backtester.</p></article>
-    <article class="part sheet"><div class="tab"><span class="lbl">Part 2</span><span>backtest_engine.py</span><span class="badge pub">public</span></div><h3>Backtester</h3><p>Simulates trades on 1-minute candles with separate bid and ask, real spread and swap, with an Excel report and a reason funnel.</p></article>
-    <article class="part sheet"><div class="tab"><span class="lbl">Part 3</span><span>history_downloader.py</span><span class="badge pub">public</span></div><h3>History downloader</h3><p>Pulls 6 years of data from MetaTrader, year by year, and resumes where it stopped if interrupted.</p></article>
-    <article class="part sheet"><div class="tab"><span class="lbl">Part 4</span><span>spread_meter.py</span><span class="badge pub">public</span></div><h3>Spread meter</h3><p>Measures the broker's real spread from thousands of ticks, using the median rather than the mean so brief spikes cannot distort it.</p></article>
+  <div class="parts5">
+    <article class="p5 sheet"><header><h3>Trading robot</h3><span class="badge priv">private</span></header><p>Runs the strategy on MetaTrader 5; shares its decision engine with the backtester.</p></article>
+    <article class="p5 sheet"><header><h3>Backtester</h3><span class="badge pub">public</span></header><p>1-minute candles, separate bid and ask, real spread and swap.</p></article>
+    <article class="p5 sheet"><header><h3>History</h3><span class="badge pub">public</span></header><p>Downloads 6 years of data, year by year, and resumes where it stopped.</p></article>
+    <article class="p5 sheet"><header><h3>Spread meter</h3><span class="badge pub">public</span></header><p>The broker's real spread from thousands of ticks, using the median.</p></article>
+    <article class="p5 sheet star"><header><h3>Watchdog</h3><span class="badge pub">public</span></header><p>Checks the robot every 60 seconds, restarts it and reports on Bale.</p></article>
   </div>
 
-  <h2 class="h2">The journey at a glance</h2>
-  <figure class="fig sheet" style="margin:0">
-    <div id="fig1"></div>
-    <p class="cap"><span class="fig-no">Fig. 1</span>Illustrative: each candle is a step of the journey; green for progress, red for setbacks. Not real profit.</p>
-  </figure>
-
-  <div class="foot"><span>Hossein Shirdel — this résumé and its site were built with AI.</span><span class="sheetno">Sheet 1 of 3</span></div>
-</section>
-
-<!-- ============ sheet 2 ============ -->
-<section class="page">
   <h2 class="h2">The biggest challenge: a backtest that fooled us for three months</h2>
-  <div class="two text-col">
-    <p>One of the biggest dangers in building a trading robot is <b>an unrealistic backtest</b>. Our old backtest showed 825% profit over 6 years. The robot ran live for three months, but the results looked nothing like the backtest, and we had to rebuild the robot from scratch.</p>
-    <p>A trade-by-trade comparison showed that <b>the robot's logic was right</b> and the flaw was in the backtester. When an order filled inside a 4-hour candle, it assumed the candle's high and low came <b>after</b> the entry, so it credited profits that had actually happened <b>before</b> the entry. The backtest could see the future.</p>
-  </div>
-  <figure class="fig sheet" style="margin:0">
-    <div class="fig-head"><h3><span class="fig-no">Fig. 2</span>Inside that same candle</h3><p class="cap">Illustrative, with made-up prices: the high (1) came before the order filled (2), and then the stop was hit (3).</p></div>
-    <div id="fig2"></div>
-  </figure>
-
+  <p class="intro">Our old backtest showed 825% profit over 6 years, yet the live account was losing. A trade-by-trade comparison showed that <b>the robot's logic was right and the flaw was in the backtester</b>: when an order filled inside a 4-hour candle, it assumed the candle's high and low came <b>after</b> the entry. The backtest could see the future.</p>
   <figure class="fig sheet" style="margin:0">
     <div class="fig-head">
-      <div><h3><span class="fig-no">Fig. 3</span>Six weeks, three versions of the same trades</h3><p class="cap">Cumulative return on a $100,000 account, Aug 17 to Sep 28, 2026 (real data)</p></div>
+      <div><h3><span class="fig-no">Fig. 1</span>Six weeks, three versions of the same trades</h3><p class="cap">Cumulative return on a $100,000 account, Aug 17 to Sep 28, 2026 (real data)</p></div>
       <div class="legend"><span style="color:var(--old)"><i class="dash"></i><em style="font-style:normal;color:var(--ink-2)">Backtest, old method</em></span><span style="color:var(--real)"><i></i><em style="font-style:normal;color:var(--ink-2)">Realistic backtest</em></span><span style="color:var(--live)"><i></i><em style="font-style:normal;color:var(--ink-2)">Live account</em></span></div>
     </div>
     <div id="fig3"></div>
@@ -84,44 +58,42 @@
     <div class="proof"><b>0.6%</b><span>chance of the live result if the old backtest had been right</span></div>
   </div>
 
-  <p class="did"><b>What we did:</b> rebuilt the backtester on 1-minute data with separate bid and ask, real spread and swap. The robot and the backtester now share one decision engine, and tests show their decisions match at every moment. My public backtester has a lock that refuses to run a strategy that sees the future. <b>Today</b> we are rebuilding the robot and re-running the backtests with this new engine.</p>
+  <p class="did"><b>What we did:</b> rebuilt the backtester on 1-minute data, and the robot and the backtester now share one decision engine. <b>Today</b> we are rebuilding the robot and re-running the backtests with this new engine.</p>
+  <p class="intro"><b>When Iran's internet went national,</b> the robot's server suddenly went out of reach. So I built an engine that sends every order, every cancellation with its exact reason, and the watchdog's messages, complete and readable, to the domestic messenger Bale.</p>
 
-  <h2 class="h2">When the internet went national, the robot learned to talk</h2>
-  <div class="logs">
-    <div class="text-col">
-      <p>The robot was running on a virtual server when it went out of reach for no visible reason. I later realized it was exactly when Iran's internet was cut down to the national network and I could not reach the server.</p>
-      <p>So I built an engine that sends every event, <b>complete and readable</b>, to the domestic messenger Bale: every order with its real risk, every cancellation with its exact reason, partial closes, daily reports, and watchdog messages.</p>
-      <p class="cap">The messages beside this text are real logs from the previous robot on a demo account, translated from Persian.</p>
-    </div>
-    <div class="phone"><div class="screen">
-      <div class="bar"><span class="av">R</span>Robot log</div>
-      <div class="feed">
-        <div class="msg"><span>🗑 Order cancelled | zone AUDUSD_H4_00300 | sell</span><span>├ Order age: 59 minutes</span><span>├ Exact reason: daily trend up | H4 trend down</span><span>└ Next step: not re-placed</span></div>
-        <div class="msg"><span>🚨 Robot down! No heartbeat for 15 minutes; restarting it now…</span></div>
-        <div class="msg"><span>🛡 Watchdog: ✅ robot is back (last heartbeat 0.3 minutes ago).</span></div>
-      </div>
-    </div></div>
-  </div>
-
-  <div class="foot"><span>Hossein Shirdel — this résumé and its site were built with AI.</span><span class="sheetno">Sheet 2 of 3</span></div>
+  <div class="foot"><span>Hossein Shirdel — this résumé and its site were built with AI.</span><span class="sheetno">Sheet 1 of 2</span></div>
 </section>
 
-<!-- ============ sheet 3 ============ -->
-<section class="page p3">
-  <h2 class="h2">About me</h2>
-  <div class="about">
-    <div><span class="when">March 2024</span><p>Into the markets and a year of daily practice. After one year at university, I left to focus on this full time.</p></div>
-    <div><span class="when">Insight</span><p>A trader's real problem is self-control, not strategy. Anton Kreil said trading's future belongs to AI, and I decided to combine the two.</p></div>
-    <div><span class="when">The past year</span><p>Built the system with AI, ran it live for three months, found the backtest flaw, and rebuilt everything.</p></div>
+<!-- ============ sheet 2 ============ -->
+<section class="page p2">
+  <h2 class="h2">Project 2: Mahak, a test bench for Persian support chatbots</h2>
+  <div class="mahak">
+    <div class="mk-text">
+      <p class="mk-status"><span class="badge pub">first version built</span><span class="badge wip">now testing on real chatbots</span></p>
+      <p class="intro">Mahak talks to a support chatbot the way a customer would, tests it on <b>five levels</b> and hands back a report card:</p>
+      <ol class="levels5"><li>Basics</li><li>Persian as typed</li><li>Multi-turn</li><li>Honesty</li><li>Attempts to trick it</li></ol>
+      <ul class="skills">
+        <li><span>Writes its questions <b>from the company's own documents</b>, and asks each one again with typos, colloquially and in Finglish.</span></li>
+        <li><span>A <b>critical failure</b>, such as leaking a password or a customer's details, zeroes that test; every check is compared with the previous one.</span></li>
+        <li><span><b>The judge is tested too:</b> it is compared with people's verdicts, and each mistake it makes becomes an automatic test.</span></li>
+      </ul>
+    </div>
+    <aside class="mk-card sheet">
+      <h3>Report card of two sample chatbots</h3>
+      <div class="bar-row"><span>Careless</span><i class="low" style="--v:35"></i><b>35</b></div>
+      <div class="bar-row"><span>Careful</span><i style="--v:85"></i><b>85</b></div>
+      <p class="cap">Score out of 100. The careless bot had 9 critical failures, the careful one none. Both are simple programs, built to differ on purpose.</p>
+      <div class="mk-try"><img src="qr-mahak.svg" alt="QR"><b>Try it in your browser now; nothing to install</b><span class="url">shirdelhossein909-ux.github.io/mahak-lab</span></div>
+    </aside>
   </div>
 
   <h2 class="h2">How I work</h2>
-  <p class="intro">Today even experienced programmers write most of their code with AI. The scarce skill is knowing <b>what to build, how to prove it works, and when to doubt a result</b>. My role is system design, precise specification, testing and judgment.</p>
+  <p class="intro">The scarce skill today is knowing <b>what to build, how to prove it works, and when to doubt a result</b>. Both projects were built with the same loop:</p>
   <ol class="loop">
     <li><b>Specify</b><span>every rule and edge case in plain, unambiguous language</span></li>
     <li><b>Build with AI</b><span>the model writes the code; I direct the structure and decisions</span></li>
-    <li><b>Test against known answers</b><span>synthetic data, a fake MetaTrader, cases with known results</span></li>
-    <li><b>Compare with reality</b><span>backtest versus live account, trade by trade</span></li>
+    <li><b>Test against known answers</b><span>synthetic data, a fake MetaTrader, sample chatbots</span></li>
+    <li><b>Compare with reality</b><span>backtest versus live account; Mahak's judge versus people</span></li>
     <li><b>Fix and lock in</b><span>every fix ships with a test that keeps the mistake from returning</span></li>
   </ol>
 
@@ -130,11 +102,10 @@
       <h2 class="h2">Skills</h2>
       <ul class="skills">
         <li><span><b>Building real software systems with AI</b> (Claude, GPT): design, specification, direction and testing</span></li>
+        <li><span><b>Chatbot quality testing:</b> test design, rule-based judging, checking the judge against people</span></li>
         <li><span><b>Backtest design and validation:</b> detecting look-ahead, reconciling backtests with live accounts</span></li>
-        <li><span><b>Automated trading on MetaTrader 5;</b> running robots on Windows virtual servers</span></li>
-        <li><span><b>Monitoring and reporting:</b> an automatic watchdog and full reports on the Bale messenger</span></li>
+        <li><span><b>Automated trading on MetaTrader 5;</b> robots on Windows virtual servers, with a watchdog and reports on Bale</span></li>
         <li><span><b>Price-action market analysis</b> (supply and demand); about two and a half years of experience since March 2024</span></li>
-        <li><span><b>Analyzing results</b> in Excel reports</span></li>
       </ul>
     </div>
     <div class="col">
@@ -142,7 +113,7 @@
       <dl class="kv">
         <div><dt>Born</dt><dd>2004</dd></div>
         <div><dt>Based in</dt><dd>Hamedan, Iran</dd></div>
-        <div><dt>Education</dt><dd>High-school diploma in computing, Shahid Motahari School, Fariman; one year of university, then left to focus on this project</dd></div>
+        <div><dt>Education</dt><dd>High-school diploma in computing, Shahid Motahari School, Fariman; one year of university, then left to focus on this work</dd></div>
         <div><dt>Military service</dt><dd>Not yet completed</dd></div>
         <div><dt>English</dt><dd>Basic</dd></div>
       </dl>
@@ -160,21 +131,21 @@
     </div>
     <div class="col">
       <h2 class="h2">What I am looking for</h2>
-      <p class="seek">A role on an AI team, at a startup or at a fintech company: building tools and systems with AI, automating processes, and running backtests and analysis on market data.</p>
+      <p class="seek">A role on an AI team, at a startup or at a fintech company: building tools and systems with AI, testing chatbot quality, automating processes, and running backtests and analysis on market data.</p>
     </div>
   </div>
 
   <div class="band">
     <div>
       <h3>Every detail is on the site</h3>
-      <p>Real logs, the full chart, the 14 issues we found and logged, full source for four public tools (history downloader, spread meter, backtester and watchdog), and two interactive experiments: “Open the candle” and the “Watchdog test bench”.</p>
+      <p>The full journey, real robot logs, the 14 issues we found and logged, full source for four public tools, two interactive experiments, and the full story of Mahak.</p>
       <div class="url">shirdelhossein909-ux.github.io/REZOOOOME</div>
     </div>
     <div class="sign"><span class="nq">حسین شیردل</span><small>Hossein Shirdel</small></div>
     <img src="qr-en.svg" alt="QR">
   </div>
 
-  <div class="foot"><span>Hossein Shirdel — this résumé and its site were built with AI.</span><span class="sheetno">Sheet 3 of 3</span></div>
+  <div class="foot"><span>Hossein Shirdel — this résumé and its site were built with AI.</span><span class="sheetno">Sheet 2 of 2</span></div>
 </section>
 
 <script src="charts.js"></script>

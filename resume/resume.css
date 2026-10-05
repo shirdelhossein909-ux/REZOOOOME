@@ -195,3 +195,44 @@ dl { margin: 0; }
 .sign { display: grid; justify-items: center; gap: 0; padding-inline: 2mm; }
 .sign .nq { font: 700 19pt/2.3 var(--f-sign); color: var(--pen); transform: rotate(-5deg); }
 .sign small { font-size: 6.4pt; color: var(--muted); margin-top: 2.2mm; }
+
+/* ---------- two-sheet layout: the five parts in one row, Mahak ---------- */
+.parts5 { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 2.4mm; }
+.p5 { padding: 2.2mm 2.6mm 2.4mm; display: grid; gap: .5mm; align-content: start; }
+.p5 header { display: flex; align-items: center; justify-content: space-between; gap: 1.2mm; }
+.p5 h3 { font-size: 8.6pt; line-height: 1.6; white-space: nowrap; }
+:root[lang="en"] .p5 h3 { line-height: 1.3; }
+.p5 p { color: var(--ink-2); font-size: 7.4pt; line-height: 1.6; }
+:root[lang="en"] .p5 p { line-height: 1.38; }
+.p5 .badge { font-size: 5.8pt; padding: 0 1.4mm; white-space: nowrap; }
+:root[lang="en"] .p5 header { flex-direction: column-reverse; align-items: flex-start; gap: .8mm; }
+.p5.star { border-color: var(--pen); background: linear-gradient(var(--pen-soft), var(--pen-soft)), var(--sheet); }
+.badge.wip { color: var(--wip); }
+.page.p1 { gap: 3.6mm; }
+.page.p2 { gap: 4.2mm; }
+
+.mahak { display: grid; grid-template-columns: minmax(0, 1fr) 66mm; gap: 5mm; align-items: start; }
+.mk-text { display: grid; gap: 2.2mm; }
+.mk-status { display: flex; flex-wrap: wrap; gap: 1.6mm; }
+.levels5 { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1.2mm; counter-reset: lv; }
+.levels5 li { counter-increment: lv; display: grid; gap: .2mm; padding: 1mm 1.8mm 1.2mm; border-top: .9mm solid var(--pen); background: var(--sheet); font-size: 7.4pt; line-height: 1.45; font-weight: 700; color: var(--ink); }
+.levels5 li::before { content: "سطح " counter(lv, persian); font-size: 6.4pt; font-weight: 600; color: var(--muted); }
+:root[lang="en"] .levels5 li::before { content: "Level " counter(lv); font-family: var(--f-mono); font-size: 5.8pt; letter-spacing: .04em; }
+.levels5 li:nth-child(2) { border-top-color: color-mix(in srgb, var(--pen) 80%, transparent); }
+.levels5 li:nth-child(3) { border-top-color: color-mix(in srgb, var(--pen) 60%, transparent); }
+.levels5 li:nth-child(4) { border-top-color: color-mix(in srgb, var(--pen) 40%, transparent); }
+.levels5 li:nth-child(5) { border-top-color: color-mix(in srgb, var(--pen) 22%, transparent); }
+.mk-card { padding: 3mm 3.6mm; display: grid; gap: 1.8mm; }
+.mk-card h3 { font-size: 9pt; line-height: 1.6; }
+:root[lang="en"] .mk-card h3 { line-height: 1.3; }
+.bar-row { display: grid; grid-template-columns: 11mm minmax(0, 1fr) 7mm; gap: 2mm; align-items: center; font-size: 7.8pt; line-height: 1.4; }
+:root[lang="en"] .bar-row { grid-template-columns: 13mm minmax(0, 1fr) 7mm; }
+.bar-row i { position: relative; display: block; height: 3mm; border-radius: .6mm; background: var(--sheet-2); overflow: hidden; }
+.bar-row i::after { content: ""; position: absolute; inset-block: 0; inset-inline-start: 0; width: calc(var(--v) * 1%); background: var(--pen); }
+.bar-row i.low::after { background: var(--down); }
+.bar-row b { font: 600 9pt/1 var(--f-mono); text-align: end; }
+:root[lang="fa"] .bar-row b { font-family: var(--f-fa); font-weight: 800; }
+.mk-try { display: grid; grid-template-columns: 17mm minmax(0, 1fr); gap: 1.4mm 2.6mm; align-items: center; padding-top: 2mm; border-top: .25mm dashed var(--rule); }
+.mk-try img { width: 17mm; height: 17mm; display: block; }
+.mk-try b { font-size: 8pt; line-height: 1.5; }
+.mk-try .url { grid-column: 1 / -1; font: 600 6.3pt/1.4 var(--f-mono); color: var(--pen); white-space: nowrap; }
