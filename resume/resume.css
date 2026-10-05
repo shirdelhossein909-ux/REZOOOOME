@@ -209,7 +209,7 @@ dl { margin: 0; }
 .p5.star { border-color: var(--pen); background: linear-gradient(var(--pen-soft), var(--pen-soft)), var(--sheet); }
 .badge.wip { color: var(--wip); }
 .page.p1 { gap: 3.6mm; }
-.page.p2 { gap: 4.2mm; }
+.page.p2 { gap: 3.9mm; }
 
 .mahak { display: grid; grid-template-columns: minmax(0, 1fr) 66mm; gap: 5mm; align-items: start; }
 .mk-text { display: grid; gap: 2.2mm; }

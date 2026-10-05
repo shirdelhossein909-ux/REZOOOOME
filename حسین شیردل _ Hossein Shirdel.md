@@ -282,7 +282,7 @@ spread_meter.py · کد عمومی
 
 - ۵ — سطح، از ساده تا فریب
 - ۵۹ — سؤال نوشته‌شده، به‌علاوه‌ی نسخه‌های فارسی
-- ۵۳ — آزمون خودکار برای خود محک
+- ۶۲ — آزمون خودکار برای خود محک
 - ۰ — نصب؛ در مرورگر اجرا می‌شود
 
 وضعیت: ساخت نسخه‌ی اول تمام شده · در مرحله‌ی آزمایش روی چت‌بات‌های واقعی
@@ -297,17 +297,18 @@ spread_meter.py · کد عمومی
 - **شکست بحرانی نمره را صفر می‌کند.** چت‌باتی که رمز یا اطلاعات مشتری را لو بدهد «نیمه‌درست» نیست.
 - **سقف سطح، نه فقط یک عدد.** مثل کمربند در ورزش‌های رزمی نشان می‌دهد چت‌بات تا کجا قابل اعتماد است، و کنار نرخ قبولی بازه‌ی اطمینان ۹۵٪ می‌آید.
 - **مقایسه با سنجش قبلی.** یک آزمون آماری می‌گوید تغییر نمره واقعی است یا شاید تصادفی.
-- **داور خودش هم آزموده می‌شود.** بازدیدکننده‌ها جواب‌ها را خودشان داوری می‌کنند؛ همین کار اولین خطای داور را پیدا کرد و حالا یک آزمون خودکار نمی‌گذارد آن خطا برگردد.
+- **داور خودش هم آزموده می‌شود.** یک داور هوش مصنوعی (DeepSeek) ۲۱۶ جواب را دوباره داوری کرد: ۹۸٪ با داور قانونی هم‌نظر بود و ۷ خطای آن را پیدا کرد. هر خطای داور یک آزمون خودکار می‌شود تا برنگردد.
 - **بدون نصب.** همان کد پایتون محک در مرورگر اجرا می‌شود؛ کلید API خریدار هم از مرورگر خودش بیرون نمی‌رود.
 
-### کارنامه‌ی چت‌بات‌های نمونه
+### کارنامه‌ی چت‌بات‌ها
 
 | | بی‌دقت | محتاط |
 | --- | --- | --- |
-| فروشگاه «مثال‌کالا» | ۳۵ | ۸۵ |
-| بانک «مثال‌بانک» | ۳۱ | ۸۳ |
+| فروشگاه «مثال‌کالا» | ۳۱ | ۸۵ |
+| بانک «مثال‌بانک» | ۲۸ | ۸۳ |
+| چت‌بات واقعی با DeepSeek (یک‌خطی / دقیق) | ۷۵ | ۹۷ |
 
-نمره از ۱۰۰. چت‌بات‌های بی‌دقت ۹ شکست خطرناک داشتند و محتاط‌ها هیچ. این چت‌بات‌ها مدل زبانی نیستند؛ برنامه‌های ساده‌ای‌اند که عمداً متفاوت ساخته شده‌اند تا ببینیم محک فرقشان را تشخیص می‌دهد.
+نمره از ۱۰۰. دیپ‌سیک با دستورالعمل یک‌خطی ۷۵ گرفت ولی زیر سطح ۱ ماند، چون اطلاعات فروشگاه را ندارد و جواب می‌سازد؛ با دستورالعمل دقیق و سؤال‌های متداول، ۹۷. چت‌بات‌های بی‌دقت فروشگاه و بانک ۱۰ شکست خطرناک داشتند و محتاط‌ها هیچ. این چهار تا مدل زبانی نیستند؛ برنامه‌های ساده‌ای‌اند که عمداً متفاوت ساخته شده‌اند تا ببینیم محک فرقشان را تشخیص می‌دهد.
 
 - [آزمون زنده را ببینید](https://shirdelhossein909-ux.github.io/mahak-lab/)
 - [چت‌بات خودتان را محک بزنید](https://shirdelhossein909-ux.github.io/mahak-lab/check.html)
@@ -623,7 +624,7 @@ Does a support chatbot really work, or does it only look good in a demo? Mahak t
 
 - 5 — levels, from simple to tricks
 - 59 — written questions, plus Persian variants
-- 53 — automatic tests of Mahak itself
+- 62 — automatic tests of Mahak itself
 - 0 — installs; it runs in the browser
 
 Status: first version built · now testing on real chatbots
@@ -638,17 +639,18 @@ Status: first version built · now testing on real chatbots
 - **A critical failure zeroes the test.** A chatbot that leaks a password or a customer's details is not “half right”.
 - **A level ceiling, not just a number.** Like a belt in martial arts, it shows how far the chatbot can be trusted, with a 95% confidence interval beside the pass rate.
 - **Compared with the previous check.** A statistical test says whether a change is real or may be chance.
-- **The judge is tested too.** Visitors judge answers themselves; that is how the judge's first mistake was found, and an automatic test now keeps it from coming back.
+- **The judge is tested too.** A model judge (DeepSeek) re-judged 216 answers: it agreed with the rule judge 98% of the time and found 7 of its mistakes. Every judge mistake becomes an automatic test so it cannot come back.
 - **Nothing to install.** Mahak's own Python code runs in the browser, and a buyer's API key never leaves their browser.
 
-### Sample chatbots' report cards
+### Report cards
 
 | | Careless | Careful |
 | --- | --- | --- |
-| A sample shop | 35 | 85 |
-| A sample bank | 31 | 83 |
+| A sample shop | 31 | 85 |
+| A sample bank | 28 | 83 |
+| A real chatbot on DeepSeek (one-line / careful prompt) | 75 | 97 |
 
-Scores out of 100. The careless bots had 9 critical failures each, the careful ones none. They are not language models but simple programs, built to differ on purpose so we can see whether Mahak tells them apart.
+Scores out of 100. DeepSeek behind a one-line prompt scored 75 yet stayed below level 1, because it has no shop facts and makes answers up; behind a careful prompt with the FAQ, 97. The careless shop and bank bots had 10 critical failures each, the careful ones none. Those four are not language models but simple programs, built to differ on purpose so we can see whether Mahak tells them apart.
 
 - [Watch a live test](https://shirdelhossein909-ux.github.io/mahak-lab/)
 - [Test your own chatbot](https://shirdelhossein909-ux.github.io/mahak-lab/check.html)
