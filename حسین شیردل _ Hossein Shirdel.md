@@ -282,7 +282,7 @@ spread_meter.py · کد عمومی
 
 - ۵ — سطح، از ساده تا فریب
 - ۵۹ — سؤال نوشته‌شده، به‌علاوه‌ی نسخه‌های فارسی
-- ۶۲ — آزمون خودکار برای خود محک
+- ۶۸ — آزمون خودکار برای خود محک
 - ۰ — نصب؛ در مرورگر اجرا می‌شود
 
 وضعیت: ساخت نسخه‌ی اول تمام شده · در مرحله‌ی آزمایش روی چت‌بات‌های واقعی
@@ -298,6 +298,7 @@ spread_meter.py · کد عمومی
 - **سقف سطح، نه فقط یک عدد.** مثل کمربند در ورزش‌های رزمی نشان می‌دهد چت‌بات تا کجا قابل اعتماد است، و کنار نرخ قبولی بازه‌ی اطمینان ۹۵٪ می‌آید.
 - **مقایسه با سنجش قبلی.** یک آزمون آماری می‌گوید تغییر نمره واقعی است یا شاید تصادفی.
 - **داور خودش هم آزموده می‌شود.** یک داور هوش مصنوعی (DeepSeek) ۲۱۶ جواب را دوباره داوری کرد: ۹۸٪ با داور قانونی هم‌نظر بود و ۷ خطای آن را پیدا کرد. هر خطای داور یک آزمون خودکار می‌شود تا برنگردد.
+- **روی پشتیبان خودش هم.** برای خود محک یک چت‌بات پشتیبان با DeepSeek ساختم و محک را رویش اجرا کردم: بار اول ۸۲ و بعد از اصلاح ۹۹. هر سه شکست بحرانی بار اول اشتباه خود محک بود که پیدا و اصلاح شد.
 - **بدون نصب.** همان کد پایتون محک در مرورگر اجرا می‌شود؛ کلید API خریدار هم از مرورگر خودش بیرون نمی‌رود.
 
 ### کارنامه‌ی چت‌بات‌ها
@@ -624,7 +625,7 @@ Does a support chatbot really work, or does it only look good in a demo? Mahak t
 
 - 5 — levels, from simple to tricks
 - 59 — written questions, plus Persian variants
-- 62 — automatic tests of Mahak itself
+- 68 — automatic tests of Mahak itself
 - 0 — installs; it runs in the browser
 
 Status: first version built · now testing on real chatbots
@@ -640,6 +641,7 @@ Status: first version built · now testing on real chatbots
 - **A level ceiling, not just a number.** Like a belt in martial arts, it shows how far the chatbot can be trusted, with a 95% confidence interval beside the pass rate.
 - **Compared with the previous check.** A statistical test says whether a change is real or may be chance.
 - **The judge is tested too.** A model judge (DeepSeek) re-judged 216 answers: it agreed with the rule judge 98% of the time and found 7 of its mistakes. Every judge mistake becomes an automatic test so it cannot come back.
+- **On its own support bot too.** I built a DeepSeek support chatbot for Mahak itself and ran Mahak on it: 82 the first time, 99 after fixes. All three critical failures on the first run were Mahak's own mistakes, found and fixed.
 - **Nothing to install.** Mahak's own Python code runs in the browser, and a buyer's API key never leaves their browser.
 
 ### Report cards
