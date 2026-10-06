@@ -166,7 +166,7 @@
 
   /* ---------- Fig. 3: live vs backtest (real data) ---------- */
   (function () {
-    var W = 1000, H = 228, svg = svgIn("fig3", W, H);
+    var W = 1000, H = 176, svg = svgIn("fig3", W, H);
     if (!svg) return;
     var defs = [
       { key: "old", col: css("--old"), dash: "6 5", fa: "بکتست با روش قدیم", en: "Backtest, old method", w: 2 },

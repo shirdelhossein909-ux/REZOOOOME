@@ -24,7 +24,7 @@
     </div>
   </header>
 
-  <p class="summary">For about a year, I have been using leading AI models such as Claude and GPT to design and build real software systems. Two main projects: a <b>five-part automated trading system</b> for MetaTrader 5, where the backtest showed 825% profit while the live account lost money, so I <b class="hl">found the flaw in the backtest myself</b> and rebuilt the system; and <b>Mahak</b>, a test bench for Persian customer-support chatbots that you can try in your browser today.</p>
+  <p class="summary">For about a year, I have been using leading AI models such as Claude and GPT to design and build real software systems. Two main projects: a <b>five-part automated trading system</b> for MetaTrader 5, whose <b class="hl">hidden backtest flaw I found myself</b> before rebuilding it; and <b>Mahak</b>, a test bench for Persian customer-support chatbots that you can try in your browser today.</p>
 
   <h2 class="h2">Project 1: an automated trading system</h2>
   <div class="facts">
@@ -34,15 +34,15 @@
     <div class="fact"><b>6 years</b><span>of 1-minute data</span></div>
   </div>
   <div class="parts5">
-    <article class="p5 sheet"><header><h3>Trading robot</h3><span class="badge priv">private</span></header><p>Runs the strategy on MetaTrader 5; shares its decision engine with the backtester.</p></article>
+    <article class="p5 sheet"><header><h3>Trading robot</h3><span class="badge priv">private</span></header><p>Runs the strategy on MetaTrader 5 with the backtester's engine.</p></article>
     <article class="p5 sheet"><header><h3>Backtester</h3><span class="badge pub">public</span></header><p>1-minute candles, separate bid and ask, real spread and swap.</p></article>
-    <article class="p5 sheet"><header><h3>History</h3><span class="badge pub">public</span></header><p>Downloads 6 years of data, year by year, and resumes where it stopped.</p></article>
+    <article class="p5 sheet"><header><h3>History</h3><span class="badge pub">public</span></header><p>Downloads 6 years of data and resumes where it stopped.</p></article>
     <article class="p5 sheet"><header><h3>Spread meter</h3><span class="badge pub">public</span></header><p>The broker's real spread from thousands of ticks, using the median.</p></article>
     <article class="p5 sheet star"><header><h3>Watchdog</h3><span class="badge pub">public</span></header><p>Checks the robot every 60 seconds, restarts it and reports on Bale.</p></article>
   </div>
 
   <h2 class="h2">The biggest challenge: a backtest that fooled us for three months</h2>
-  <p class="intro">Our old backtest showed 825% profit over 6 years, yet the live account was losing. A trade-by-trade comparison showed that <b>the robot's logic was right and the flaw was in the backtester</b>: when an order filled inside a 4-hour candle, it assumed the candle's high and low came <b>after</b> the entry. The backtest could see the future.</p>
+  <p class="intro">Our old backtest showed 825% profit, yet the live account was losing. Trade by trade, <b>the robot's logic was right; the flaw was in the backtester</b>: for an order filled inside a 4-hour candle, it assumed the candle's high and low came <b>after</b> the entry. It could see the future.</p>
   <figure class="fig sheet" style="margin:0">
     <div class="fig-head">
       <div><h3><span class="fig-no">Fig. 1</span>Six weeks, three versions of the same trades</h3><p class="cap">Cumulative return on a $100,000 account, Aug 17 to Sep 28, 2026 (real data)</p></div>
@@ -59,7 +59,17 @@
   </div>
 
   <p class="did"><b>What we did:</b> rebuilt the backtester on 1-minute data, and the robot and the backtester now share one decision engine. <b>Today</b> we are rebuilding the robot and re-running the backtests with this new engine.</p>
-  <p class="intro"><b>When Iran's internet went national,</b> the robot's server suddenly went out of reach. So I built an engine that sends every order, every cancellation with its exact reason, and the watchdog's messages, complete and readable, to the domestic messenger Bale.</p>
+  <p class="intro"><b>When Iran's internet went national,</b> I built an engine that reports every order and cancellation to the domestic messenger Bale.</p>
+
+  <h2 class="h2">How I work</h2>
+  <p class="intro">The scarce skill today: knowing <b>what to build, how to prove it works, and when to doubt a result</b>. Both projects use this loop:</p>
+  <ol class="loop">
+    <li><b>Specify</b></li>
+    <li><b>Build with AI</b></li>
+    <li><b>Known-answer tests</b></li>
+    <li><b>Compare with reality</b></li>
+    <li><b>Fix and lock in</b></li>
+  </ol>
 
   <div class="foot"><span>Hossein Shirdel — this résumé and its site were built with AI.</span><span class="sheetno">Sheet 1 of 2</span></div>
 </section>
@@ -75,7 +85,7 @@
       <ul class="skills">
         <li><span>Writes its questions <b>from the company's own documents</b>, and asks each one again with typos, colloquially and in Finglish.</span></li>
         <li><span>A <b>critical failure</b>, such as leaking a password or a customer's details, zeroes that test; every check is compared with the previous one.</span></li>
-        <li><span><b>Tested on a real chatbot too:</b> DeepSeek behind a one-line prompt scored 75 yet stayed below level 1, because it makes answers up; behind a careful prompt, 97. Its model judge agreed with the rule judge 98% of the time.</span></li>
+        <li><span><b>Tested on a real chatbot too:</b> DeepSeek behind a one-line prompt scored 75 yet stayed below level 1, because it makes answers up; behind a careful prompt, 97. Mahak's judge agreed 98% with a model judge and 95% with my own labels.</span></li>
       </ul>
     </div>
     <aside class="mk-card sheet">
@@ -86,23 +96,21 @@
       <div class="mk-try"><a href="https://shirdelhossein909-ux.github.io/mahak-lab/"><img src="qr-mahak.svg" alt="QR"></a><b>Try it in your browser now; nothing to install</b><a class="url" href="https://shirdelhossein909-ux.github.io/mahak-lab/">shirdelhossein909-ux.github.io/mahak-lab</a></div>
     </aside>
   </div>
-
-  <h2 class="h2">How I work</h2>
-  <p class="intro">The scarce skill today is knowing <b>what to build, how to prove it works, and when to doubt a result</b>. Both projects were built with the same loop:</p>
-  <ol class="loop">
-    <li><b>Specify</b><span>every rule and edge case in plain, unambiguous language</span></li>
-    <li><b>Build with AI</b><span>the model writes the code; I direct the structure and decisions</span></li>
-    <li><b>Test against known answers</b><span>synthetic data, a fake MetaTrader, sample chatbots</span></li>
-    <li><b>Compare with reality</b><span>backtest versus live account; Mahak's judge versus people</span></li>
-    <li><b>Fix and lock in</b><span>every fix ships with a test that keeps the mistake from returning</span></li>
-  </ol>
+  <div class="sbot sheet">
+    <div class="sbot-head"><h3>Mahak's own AI support assistant</h3><span class="badge pub">live on the Mahak site</span></div>
+    <div class="sbot-cols">
+      <div><b>What it does</b><span>A button on every page of the Mahak site opens it, and it answers visitors with the DeepSeek model, only from Mahak's own facts. It makes nothing up, takes no keys or passwords, and ignores hidden orders.</span></div>
+      <div><b>How I built it</b><span>The API key is never in the site but on a small server on Cloudflare. Each visitor has a message limit and a message costs about a tenth of a cent; if DeepSeek is slow, it asks again.</span></div>
+      <div><b>Tested with Mahak itself</b><span>First run 82 with a level ceiling of 3; after fixes 99, all 48 tests passed, ceiling 5. Mahak caught its real faults, such as no empathy for an angry customer; the first run's three critical failures were Mahak's own mistakes, now fixed.</span></div>
+    </div>
+  </div>
 
   <div class="cols">
     <div class="col">
       <h2 class="h2">Skills</h2>
       <ul class="skills">
         <li><span><b>Building real software systems with AI</b> (Claude, GPT): design, specification, direction and testing</span></li>
-        <li><span><b>Chatbot quality testing:</b> test design, rule-based judging, checking the judge against people</span></li>
+        <li><span><b>Chatbot quality testing:</b> test design, rule-based judging, checking the judge against people (95% agreement)</span></li>
         <li><span><b>Backtest design and validation:</b> detecting look-ahead, reconciling backtests with live accounts</span></li>
         <li><span><b>Automated trading on MetaTrader 5;</b> robots on Windows virtual servers, with a watchdog and reports on Bale</span></li>
         <li><span><b>Price-action market analysis</b> (supply and demand); about two and a half years of experience since March 2024</span></li>

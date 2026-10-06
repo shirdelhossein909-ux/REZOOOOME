@@ -297,9 +297,20 @@ spread_meter.py · کد عمومی
 - **شکست بحرانی نمره را صفر می‌کند.** چت‌باتی که رمز یا اطلاعات مشتری را لو بدهد «نیمه‌درست» نیست.
 - **سقف سطح، نه فقط یک عدد.** مثل کمربند در ورزش‌های رزمی نشان می‌دهد چت‌بات تا کجا قابل اعتماد است، و کنار نرخ قبولی بازه‌ی اطمینان ۹۵٪ می‌آید.
 - **مقایسه با سنجش قبلی.** یک آزمون آماری می‌گوید تغییر نمره واقعی است یا شاید تصادفی.
-- **داور خودش هم آزموده می‌شود.** یک داور هوش مصنوعی (DeepSeek) ۲۱۶ جواب را دوباره داوری کرد: ۹۸٪ با داور قانونی هم‌نظر بود و ۷ خطای آن را پیدا کرد. هر خطای داور یک آزمون خودکار می‌شود تا برنگردد.
-- **روی پشتیبان خودش هم.** برای خود محک یک چت‌بات پشتیبان با DeepSeek ساختم و محک را رویش اجرا کردم: بار اول ۸۲ و بعد از اصلاح ۹۹. هر سه شکست بحرانی بار اول اشتباه خود محک بود که پیدا و اصلاح شد.
+- **داور خودش هم آزموده می‌شود.** یک داور هوش مصنوعی (DeepSeek) ۲۱۶ جواب را دوباره داوری کرد: ۹۸٪ با داور قانونی هم‌نظر بود و ۷ خطای آن را پیدا کرد. خودم هم ۳۷ جواب را بدون دیدن نظر داور داوری کردم: ۹۵٪ هم‌نظر بودیم (کاپای ۰٫۸۹)، و در هر دو موردِ اختلاف، داور طبق قانون درست گفته بود. هر خطای داور یک آزمون خودکار می‌شود تا برنگردد.
 - **بدون نصب.** همان کد پایتون محک در مرورگر اجرا می‌شود؛ کلید API خریدار هم از مرورگر خودش بیرون نمی‌رود.
+
+### پشتیبان هوش مصنوعی خود محک (روی سایت محک فعال است)
+
+در همه‌ی صفحه‌های آزمایشگاه محک، دکمه‌ی گرد گوشه‌ی صفحه یا گزینه‌ی «پشتیبانی» بالای صفحه یک گفت‌وگو باز می‌کند. پشت آن یک چت‌بات پشتیبانی واقعی با مدل زبانی DeepSeek است که به سؤال‌های بازدیدکننده‌ها درباره‌ی محک جواب می‌دهد. آن را ساختم تا محک را روی یک چت‌بات واقعی امتحان کنم، درست همان‌طور که چت‌بات یک شرکت را می‌سنجد.
+
+**چه می‌کند:** فقط از روی اطلاعات محک جواب می‌دهد و چیزی را که نمی‌داند نمی‌سازد؛ کلید و رمز نمی‌گیرد، نقشش را عوض نمی‌کند و دستورهای پنهان در پیام کاربر را اجرا نمی‌کند؛ با مشتری عصبانی آرام می‌ماند و همدلی می‌کند.
+
+**چطور ساختمش:** کلید API هیچ‌وقت داخل سایت نیست و روی یک سرور کوچک در Cloudflare می‌ماند؛ هر بازدیدکننده سقف پیام دارد (هر پیام حدود یک‌دهم سنت)؛ اگر DeepSeek دیر کند دوباره می‌پرسد و اگر نشد، علت را به فارسی می‌گوید.
+
+**با خود محک سنجیدمش:** بار اول ۸۲ از ۱۰۰ و سقف سطح ۳؛ بعد از اصلاح ۹۹، هر ۴۸ آزمون قبول و سقف سطح ۵. محک ایرادهای واقعی‌اش را گرفت (همدلی نکردن با مشتری عصبانی، ساختن «مدیرعامل»، «تخفیف نداریم» بی‌آنکه بداند). هر سه شکست بحرانی بار اول هم اشتباه خود محک بود، مثلاً ایمیل را «کد تخفیف ساختگی» حساب کرده بود؛ هر کدام اصلاح شد و آزمون خودکار گرفت.
+
+- [با پشتیبان محک حرف بزنید](https://shirdelhossein909-ux.github.io/mahak-lab/)
 
 ### کارنامه‌ی چت‌بات‌ها
 
@@ -640,9 +651,20 @@ Status: first version built · now testing on real chatbots
 - **A critical failure zeroes the test.** A chatbot that leaks a password or a customer's details is not “half right”.
 - **A level ceiling, not just a number.** Like a belt in martial arts, it shows how far the chatbot can be trusted, with a 95% confidence interval beside the pass rate.
 - **Compared with the previous check.** A statistical test says whether a change is real or may be chance.
-- **The judge is tested too.** A model judge (DeepSeek) re-judged 216 answers: it agreed with the rule judge 98% of the time and found 7 of its mistakes. Every judge mistake becomes an automatic test so it cannot come back.
-- **On its own support bot too.** I built a DeepSeek support chatbot for Mahak itself and ran Mahak on it: 82 the first time, 99 after fixes. All three critical failures on the first run were Mahak's own mistakes, found and fixed.
+- **The judge is tested too.** A model judge (DeepSeek) re-judged 216 answers: it agreed with the rule judge 98% of the time and found 7 of its mistakes. I also labelled 37 answers myself without seeing its verdicts: we agreed 95% of the time (kappa 0.89), and in both disagreements the judge had followed the written rule. Every judge mistake becomes an automatic test so it cannot come back.
 - **Nothing to install.** Mahak's own Python code runs in the browser, and a buyer's API key never leaves their browser.
+
+### Mahak's own AI support assistant (live on the Mahak site)
+
+On every page of the Mahak lab, the round button in the corner or “Support” in the top bar opens a chat. Behind it is a real support chatbot on the DeepSeek language model that answers visitors' questions about Mahak. I built it to try Mahak on a real chatbot, exactly as Mahak would test a company's.
+
+**What it does:** answers only from Mahak's own facts and never makes things up; never takes keys or passwords, keeps its role and ignores orders hidden in a user's message; stays calm and shows empathy with an angry customer.
+
+**How I built it:** the API key is never in the site but on a small server on Cloudflare; each visitor has a message limit (a message costs about a tenth of a cent); if DeepSeek is slow it asks again, and if that fails it says why, in Persian.
+
+**Tested with Mahak itself:** first run 82 out of 100 with a level ceiling of 3; after fixes 99, all 48 tests passed, ceiling 5. Mahak caught its real faults (no empathy for an angry customer, inventing a “CEO”, “we have no discounts” without knowing). All three critical failures in the first run were Mahak's own mistakes, such as taking an email address for a made-up discount code; each was fixed and got an automatic test.
+
+- [Talk to Mahak's support assistant](https://shirdelhossein909-ux.github.io/mahak-lab/)
 
 ### Report cards
 

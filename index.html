@@ -471,6 +471,16 @@ pre.code code { font: inherit; white-space: pre; }
 :root[data-lang="fa"] .mk-bar b { font-family: var(--f-fa); font-weight: 800; }
 .mk-side .btn { justify-content: center; }
 @media (max-width: 960px) { .mk { grid-template-columns: minmax(0, 1fr); } .mk-side { position: static; } }
+.sb { margin-block-start: 40px; padding: 26px 26px 22px; display: grid; gap: 22px; }
+.sb-head { display: grid; gap: 10px; max-width: 900px; }
+.sb-head h3 { font-size: var(--t-xl); line-height: 1.5; }
+.sb-head p { color: var(--ink-2); line-height: 1.9; margin: 0; }
+:root[data-lang="en"] .sb-head p { line-height: 1.65; }
+.sb-cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px 30px; }
+.sb-cols h4 { font-size: var(--t-m); font-weight: 800; margin: 0 0 10px; }
+.sb-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 30px; padding-block-start: 16px; border-block-start: 1px dashed var(--rule); }
+.sb-bars { display: grid; gap: 8px; flex: 1 1 260px; max-width: 440px; }
+@media (max-width: 960px) { .sb-cols { grid-template-columns: minmax(0, 1fr); } .sb { padding: 22px 18px; } }
 @media (max-width: 480px) { .ladder li { grid-template-columns: minmax(0, 1fr); gap: 2px; } }
 footer { margin-block-start: 90px; border-block-start: 1px solid var(--rule); padding-block: 24px 40px; color: var(--muted); font-size: var(--t-s); background: var(--paper); }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; }
@@ -860,8 +870,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
           <li><span><span class="fa"><b>شکست بحرانی نمره را صفر می‌کند.</b> چت‌باتی که رمز یا اطلاعات مشتری را لو بدهد «نیمه‌درست» نیست.</span><span class="en"><b>A critical failure zeroes the test.</b> A chatbot that leaks a password or a customer's details is not “half right”.</span></span></li>
           <li><span><span class="fa"><b>سقف سطح، نه فقط یک عدد.</b> مثل کمربند در ورزش‌های رزمی نشان می‌دهد چت‌بات تا کجا قابل اعتماد است، و کنار نرخ قبولی بازه‌ی اطمینان ۹۵٪ می‌آید.</span><span class="en"><b>A level ceiling, not just a number.</b> Like a belt in martial arts, it shows how far the chatbot can be trusted, with a 95% confidence interval beside the pass rate.</span></span></li>
           <li><span><span class="fa"><b>مقایسه با سنجش قبلی.</b> یک آزمون آماری می‌گوید تغییر نمره واقعی است یا شاید تصادفی.</span><span class="en"><b>Compared with the previous check.</b> A statistical test says whether a change is real or may be chance.</span></span></li>
-          <li><span><span class="fa"><b>داور خودش هم آزموده می‌شود.</b> یک داور هوش مصنوعی (DeepSeek) ۲۱۶ جواب را دوباره داوری کرد: ۹۸٪ با داور قانونی هم‌نظر بود و ۷ خطای آن را پیدا کرد. هر خطای داور یک آزمون خودکار می‌شود تا برنگردد.</span><span class="en"><b>The judge is tested too.</b> A model judge (DeepSeek) re-judged 216 answers: it agreed with the rule judge 98% of the time and found 7 of its mistakes. Every judge mistake becomes an automatic test so it cannot come back.</span></span></li>
-          <li><span><span class="fa"><b>روی پشتیبان خودش هم.</b> برای خود محک یک چت‌بات پشتیبان با DeepSeek ساختم و محک را رویش اجرا کردم: بار اول ۸۲ و بعد از اصلاح ۹۹. هر سه شکست بحرانی بار اول اشتباه خود محک بود که پیدا و اصلاح شد.</span><span class="en"><b>On its own support bot too.</b> I built a DeepSeek support chatbot for Mahak itself and ran Mahak on it: 82 the first time, 99 after fixes. All three critical failures on the first run were Mahak's own mistakes, found and fixed.</span></span></li>
+          <li><span><span class="fa"><b>داور خودش هم آزموده می‌شود.</b> یک داور هوش مصنوعی (DeepSeek) ۲۱۶ جواب را دوباره داوری کرد: ۹۸٪ با داور قانونی هم‌نظر بود و ۷ خطای آن را پیدا کرد. خودم هم ۳۷ جواب را بدون دیدن نظر داور داوری کردم: ۹۵٪ هم‌نظر بودیم (کاپای ۰٫۸۹)، و در هر دو موردِ اختلاف، داور طبق قانون درست گفته بود. هر خطای داور یک آزمون خودکار می‌شود تا برنگردد.</span><span class="en"><b>The judge is tested too.</b> A model judge (DeepSeek) re-judged 216 answers: it agreed with the rule judge 98% of the time and found 7 of its mistakes. I also labelled 37 answers myself without seeing its verdicts: we agreed 95% of the time (kappa 0.89), and in both disagreements the judge had followed the written rule. Every judge mistake becomes an automatic test so it cannot come back.</span></span></li>
           <li><span><span class="fa"><b>بدون نصب.</b> همان کد پایتون محک در مرورگر اجرا می‌شود؛ کلید API خریدار هم از مرورگر خودش بیرون نمی‌رود.</span><span class="en"><b>Nothing to install.</b> Mahak's own Python code runs in the browser, and a buyer's API key never leaves their browser.</span></span></li>
         </ul>
       </div>
@@ -884,6 +893,46 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <a class="btn" href="https://shirdelhossein909-ux.github.io/mahak-lab/check.html" target="_blank" rel="noopener"><span class="fa">چت‌بات خودتان را محک بزنید</span><span class="en">Test your own chatbot</span></a>
         <a class="btn" href="https://shirdelhossein909-ux.github.io/mahak-lab/judge.html" target="_blank" rel="noopener"><span class="fa">داور را داوری کنید</span><span class="en">Judge the judge</span></a>
       </aside>
+    </div>
+    <div class="sb sheet">
+      <div class="sb-head">
+        <span class="state ok"><span class="fa">روی سایت محک فعال است</span><span class="en">Live on the Mahak site</span></span>
+        <h3><span class="fa">پشتیبان هوش مصنوعی خود محک</span><span class="en">Mahak's own AI support assistant</span></h3>
+        <p><span class="fa">در همه‌ی صفحه‌های آزمایشگاه محک، دکمه‌ی گرد گوشه‌ی صفحه یا گزینه‌ی «پشتیبانی» بالای صفحه یک گفت‌وگو باز می‌کند. پشت آن یک چت‌بات پشتیبانی واقعی با مدل زبانی DeepSeek است که به سؤال‌های بازدیدکننده‌ها درباره‌ی محک جواب می‌دهد. آن را ساختم تا محک را روی یک چت‌بات واقعی امتحان کنم، درست همان‌طور که چت‌بات یک شرکت را می‌سنجد.</span><span class="en">On every page of the Mahak lab, the round button in the corner or “Support” in the top bar opens a chat. Behind it is a real support chatbot on the DeepSeek language model that answers visitors' questions about Mahak. I built it to try Mahak on a real chatbot, exactly as Mahak would test a company's.</span></p>
+      </div>
+      <div class="sb-cols">
+        <div>
+          <h4><span class="fa">چه می‌کند</span><span class="en">What it does</span></h4>
+          <ul class="rules">
+            <li><span><span class="fa">فقط از روی اطلاعات محک جواب می‌دهد؛ چیزی را که نمی‌داند نمی‌سازد، می‌گوید «نمی‌دانم» و ایمیل را می‌دهد.</span><span class="en">Answers only from Mahak's own facts; instead of making things up it says “I don't know” and gives the email.</span></span></li>
+            <li><span><span class="fa">کلید و رمز نمی‌گیرد، نقشش را عوض نمی‌کند و دستورهایی را که داخل پیام کاربر پنهان شده‌اند اجرا نمی‌کند.</span><span class="en">Never takes keys or passwords, keeps its role, and ignores orders hidden inside a user's message.</span></span></li>
+            <li><span><span class="fa">با مشتری عصبانی آرام می‌ماند، همدلی می‌کند و می‌پرسد چه مشکلی پیش آمده.</span><span class="en">Stays calm with an angry customer, shows empathy and asks what went wrong.</span></span></li>
+          </ul>
+        </div>
+        <div>
+          <h4><span class="fa">چطور ساختمش</span><span class="en">How I built it</span></h4>
+          <ul class="rules">
+            <li><span><span class="fa">کلید API هیچ‌وقت داخل سایت نیست: صفحه پیام را به یک سرور کوچک روی Cloudflare می‌فرستد که کلید را نگه می‌دارد.</span><span class="en">The API key is never in the site: the page sends messages to a small server on Cloudflare that holds the key.</span></span></li>
+            <li><span><span class="fa">هر بازدیدکننده سقف پیام دارد تا کسی هزینه را بالا نبرد؛ هر پیام حدود یک‌دهم سنت خرج دارد.</span><span class="en">Each visitor has a message limit so nobody can run up the bill; a message costs about a tenth of a cent.</span></span></li>
+            <li><span><span class="fa">اگر DeepSeek دیر جواب بدهد دوباره می‌پرسد، و اگر باز هم نشد، علتش را به فارسی می‌گوید.</span><span class="en">If DeepSeek is slow it asks again, and if that fails too it says why, in Persian.</span></span></li>
+          </ul>
+        </div>
+        <div>
+          <h4><span class="fa">با خود محک سنجیدمش</span><span class="en">Tested with Mahak itself</span></h4>
+          <ul class="rules">
+            <li><span><span class="fa">بار اول ۸۲ از ۱۰۰ و سقف سطح ۳؛ بعد از اصلاح ۹۹، هر ۴۸ آزمون قبول و سقف سطح ۵.</span><span class="en">First run 82 out of 100 with a level ceiling of 3; after fixes 99, all 48 tests passed, ceiling 5.</span></span></li>
+            <li><span><span class="fa">محک ایرادهای واقعی‌اش را گرفت: همدلی نکردن با مشتری عصبانی، یک بار ساختن «مدیرعامل»، و گفتن «تخفیف نداریم» بی‌آنکه بداند.</span><span class="en">Mahak caught its real faults: no empathy for an angry customer, once inventing a “CEO”, and saying “we have no discounts” without knowing.</span></span></li>
+            <li><span><span class="fa">هر سه شکست بحرانی بار اول اشتباه خود محک بود، مثلاً ایمیل را «کد تخفیف ساختگی» حساب کرده بود؛ هر کدام اصلاح شد و یک آزمون خودکار گرفت.</span><span class="en">All three critical failures in the first run were Mahak's own mistakes, such as taking an email address for a made-up discount code; each was fixed and got an automatic test.</span></span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="sb-foot">
+        <div class="sb-bars">
+          <div class="mk-bar"><span><span class="fa">بار اول</span><span class="en">First run</span></span><i class="low" style="--v:82"></i><b><span class="fa">۸۲</span><span class="en">82</span></b></div>
+          <div class="mk-bar"><span><span class="fa">حالا</span><span class="en">Now</span></span><i style="--v:99"></i><b><span class="fa">۹۹</span><span class="en">99</span></b></div>
+        </div>
+        <a class="btn primary" href="https://shirdelhossein909-ux.github.io/mahak-lab/" target="_blank" rel="noopener"><span class="fa">با پشتیبان محک حرف بزنید</span><span class="en">Talk to Mahak's support assistant</span></a>
+      </div>
     </div>
   </section>
 
