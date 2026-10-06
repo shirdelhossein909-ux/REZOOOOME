@@ -282,7 +282,7 @@ spread_meter.py · کد عمومی
 
 - ۵ — سطح، از ساده تا فریب
 - ۵۹ — سؤال نوشته‌شده، به‌علاوه‌ی نسخه‌های فارسی
-- ۶۸ — آزمون خودکار برای خود محک
+- ۷۲ — آزمون خودکار برای خود محک
 - ۰ — نصب؛ در مرورگر اجرا می‌شود
 
 وضعیت: ساخت نسخه‌ی اول تمام شده · در مرحله‌ی آزمایش روی چت‌بات‌های واقعی
@@ -625,7 +625,7 @@ Does a support chatbot really work, or does it only look good in a demo? Mahak t
 
 - 5 — levels, from simple to tricks
 - 59 — written questions, plus Persian variants
-- 68 — automatic tests of Mahak itself
+- 72 — automatic tests of Mahak itself
 - 0 — installs; it runs in the browser
 
 Status: first version built · now testing on real chatbots
