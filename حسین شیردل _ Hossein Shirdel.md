@@ -330,14 +330,14 @@ spread_meter.py · کد عمومی
 
 ## آماده‌ام در تیم شما بسازم
 
-دنبال جایگاهی در یک تیم هوش مصنوعی، استارتاپ یا شرکت فین‌تک هستم؛ جایی که بتوانم با هوش مصنوعی ابزارها و سیستم‌های واقعی بسازم، کیفیت چت‌بات‌ها را بسنجم، فرایندها را خودکار کنم و روی داده‌های بازار، بکتست و تحلیل انجام دهم.
+دنبال جایگاهی، ترجیحاً در مشهد، در یک تیم هوش مصنوعی، استارتاپ یا شرکت فین‌تک هستم؛ جایی که بتوانم با هوش مصنوعی ابزارها و سیستم‌های واقعی بسازم، کیفیت چت‌بات‌ها را بسنجم، فرایندها را خودکار کنم و روی داده‌های بازار، بکتست و تحلیل انجام دهم.
 
 **آنچه با خود می‌آورم:** ساختن یک سیستم چندبخشی از صفر تا اجرای زنده، شک کردن به نتیجه‌هایی که بیش از حد خوب‌اند و پیدا کردن خطا، گزارش‌دهی شفاف و پشتکار. پس از یک سال تحصیل در دانشگاه، آن را کنار گذاشتم تا تمام‌وقت روی این پروژه کار کنم؛ همین جدیت را به کار شما می‌آورم.
 
-- **نوع همکاری:** حضوری یا دورکاری
+- **نوع همکاری:** حضوری در مشهد (اولویت اول من) یا دورکاری
 - **حقوق:** توافقی
 - **پروژه‌ی آزمایشی:** آماده‌ی یک پروژه‌ی آزمایشی کوتاه، رایگان یا با حقوق توافقی، تا کارم را از نزدیک ببینید.
-- **شهر:** همدان
+- **شهر:** مشهد
 - **تحصیلات:** دیپلم کامپیوتر، مدرسه‌ی شهید مطهری فریمان؛ یک سال دانشگاه
 
 برای گفت‌وگو یا شروع یک پروژه‌ی آزمایشی، ایمیل بزنید:
@@ -684,14 +684,14 @@ Work with me
 
 ## Ready to build on your team
 
-I am looking for a role on an AI team, at a startup or at a fintech company, where I can build real tools and systems with AI, test chatbot quality, automate processes, and run backtests and analysis on market data.
+I am looking for a role, preferably in Mashhad, on an AI team, at a startup or at a fintech company, where I can build real tools and systems with AI, test chatbot quality, automate processes, and run backtests and analysis on market data.
 
 **What I bring:** taking a multi-part system from zero to live operation, doubting results that look too good and finding the flaw, transparent reporting, and persistence. After a year at university, I left to work on this project full time, and I will bring the same commitment to your team.
 
-- **Arrangement:** On-site or remote
+- **Arrangement:** On-site in Mashhad (my first choice) or remote
 - **Salary:** Negotiable
 - **Trial project:** Happy to start with a short trial project, unpaid or at a negotiated rate, so you can see my work up close.
-- **Based in:** Hamedan, Iran
+- **Based in:** Mashhad, Iran
 - **Education:** High-school diploma in computing, Shahid Motahari School, Fariman; one year of university
 
 For a conversation or a trial project, email me:
