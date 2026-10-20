@@ -1,4 +1,4 @@
-// Renders the two résumé pages to PDF with headless Chromium (Playwright).
+// Renders the résumés to PDF with headless Chromium (Playwright): Persian on one sheet, English on two.
 //   npm i -D playwright && node resume/build.cjs
 // Fonts are local (resume/fonts), so the build needs no network.
 const path = require("path");
@@ -17,7 +17,8 @@ const jobs = [
     const page = await browser.newPage();
     await page.goto("file://" + path.join(__dirname, src), { waitUntil: "load" });
     await page.evaluate(() => document.fonts.ready);
-    await page.waitForFunction(() => window.__chartsReady === true);
+    // only pages that load charts.js have figures to wait for (the one-sheet Persian résumé has none)
+    await page.waitForFunction(() => window.__chartsReady === true || !document.querySelector('script[src="charts.js"]'));
     const overflow = await page.evaluate(() =>
       [...document.querySelectorAll(".page")].map((p, i) => {
         const foot = p.querySelector(".foot").getBoundingClientRect().top;

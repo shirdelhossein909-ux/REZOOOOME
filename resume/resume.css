@@ -253,3 +253,17 @@ dl { margin: 0; }
 .sbot-cols b { font-size: 8pt; line-height: 1.5; color: var(--ink); }
 .sbot-cols span { font-size: 7.5pt; line-height: 1.6; color: var(--ink-2); }
 :root[lang="en"] .sbot-cols span { line-height: 1.45; }
+
+/* ---------- one-sheet Persian résumé: plain paper, and headings in Vazirmatn
+   (Noto Kufi headings came out of the PDF as broken words, e.g. the name) ---------- */
+.page.one { background-image: none; background-color: var(--sheet); gap: 2.9mm; }
+.page.one h1, .page.one h2, .page.one h3 { font-family: var(--f-fa); }
+.one .mk-card { gap: 2.2mm; }
+.one .mk-try { border-top: 0; padding-top: 0; }
+.one .mk-bars { display: grid; gap: 1.4mm; padding-top: 2mm; border-top: .25mm dashed var(--rule); }
+.one .kv > div { grid-template-columns: 22mm minmax(0, 1fr); }
+.one .mahak { grid-template-columns: minmax(0, 1fr) 60mm; }
+.one .band { grid-template-columns: minmax(0, 1fr) auto; padding: 2.6mm 5mm; }
+.one .band p { margin-top: 0; }
+.one .band .url { margin-top: 0; }
+.one .foot .sheetno { font-family: var(--f-mono); font-weight: 400; }
